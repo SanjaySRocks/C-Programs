@@ -24,7 +24,7 @@ int isFull(struct stack* ptr)
 	return 0;
 }
 
-void stackPush(struct stack* ptr, int value)
+void Push(struct stack* ptr, int value)
 {
 	if(isFull(ptr))
 	{
@@ -39,7 +39,7 @@ void stackPush(struct stack* ptr, int value)
 	}
 }
 
-int stackPop(struct stack* ptr)
+int Pop(struct stack* ptr)
 {
 	if(isEmpty(ptr))
 	{
@@ -68,14 +68,14 @@ int main()
 	printf("Total Elements in Stack - %d \n", s->top+1);
 	   
 	// Push value 
-	stackPush(s, 5);
-	stackPush(s, 10);
-	stackPush(s, 22);
-	stackPush(s, 25);
-	stackPush(s, 40);
+	Push(s, 5);
+	Push(s, 10);
+	Push(s, 22);
+	Push(s, 25);
+	Push(s, 40);
 	
 	// Pop top most element
-	stackPop(s);
+	Pop(s);
 	
 	printf("Total Elements in Stack After Pop - %d \n", s->top+1);
 	
