@@ -23,7 +23,7 @@ void Enqueue(struct Queue* q, int n)
 		
 		q->arr[q->rear] = n;
 	
-		printf("Inserted Element - %d\n", n);
+		printf("Element Inserted - %d\n", n);
 		
 	}	
 }
@@ -49,7 +49,7 @@ void display(struct Queue* q)
 	else
 	{
 		for(int i=q->front; i<=q->rear; i++)
-			printf("%d\t", *(q->arr + i));
+			printf("%d ", *(q->arr + i));
 		
 		printf("\n");		
 	}
@@ -62,13 +62,53 @@ int main()
 	
 	q = (struct Queue*) malloc(sizeof(struct Queue));
 	
-	q->size = 10;
+	q->size = 5;
 	q->front = -1;
 	q->rear = -1;
 	
 	q->arr = (int *) malloc(q->size * sizeof(int));
 	
-	Enqueue(q, 20);
+	while(1)
+	{
+		printf("Choose Options\n");
+		printf("1. Show Elements \n2. Insert Elements \n3. Delete Elements \n4. Exit\n");
+		
+		int a;
+		scanf("%d", &a);
+		
+		switch(a)
+		{
+			case 1:{
+				display(q);
+				break;
+			}
+			
+			case 2:{
+				printf("Enter the elements:\n");
+				int n;
+				scanf("%d", &n);
+				Enqueue(q, n);
+				
+				display(q);
+				
+				break;
+			}
+			
+			case 3:{
+				Dequeue(q);
+				display(q);
+				
+				break;
+			}
+			case 4: exit(0);
+			default: {
+				printf("Invalid Choice\n");
+				break;
+			}
+		}
+	}
+	
+	/*Enqueue(q, 20);
 	Enqueue(q, 30);
 	Enqueue(q, 40);
 	Enqueue(q, 50);
@@ -84,7 +124,7 @@ int main()
 	Dequeue(q);
 	Dequeue(q);
 	
-	display(q);
+	display(q);*/
 	
 	return 0;	
 }
